@@ -1,47 +1,62 @@
 # 📊 Previsão de Estoque Inteligente na AWS com [SageMaker Canvas](https://aws.amazon.com/pt/sagemaker/canvas/)
 
-Bem-vindo ao desafio de projeto "Previsão de Estoque Inteligente na AWS com SageMaker Canvas. Neste Lab DIO, você aprenderá a usar o SageMaker Canvas para criar previsões de estoque baseadas em Machine Learning (ML). Siga os passos abaixo para completar o desafio!
+Neste projeto, utilizei uma IA (ChatGPT) e o SageMaker Canvas para criar um sistema de gerenciamento de estoque inteligente com o uso de Machine Learning. A finalidade era investigar as funcionalidades de ML com pouco código e compreender como a inteligência artificial pode ser uma ferramenta valiosa no ambiente corporativo, apoiando empresas na tomada de decisões e na previsão de tendências futuras
 
 ## 📋 Pré-requisitos
 
-Antes de começar, certifique-se de ter uma conta na AWS. Se precisar de ajuda para criar sua conta, confira nosso repositório [AWS Cloud Quickstart](https://github.com/digitalinnovationone/aws-cloud-quickstart).
+- Conta AWS
+- Dataset
+- Conhecimento no uso do SageMaker Canvas
 
 
-## 🎯 Objetivos Deste Desafio de Projeto (Lab)
+## 🎯 Objetivos deste de Projeto 
 
-![image](https://github.com/digitalinnovationone/lab-aws-sagemaker-canvas-estoque/assets/730492/72f5c21f-5562-491e-aa42-2885a3184650)
-
-- Dê um fork neste projeto e reescreva este `README.md`. Sinta-se à vontade para detalhar todo o processo de criação do seu Modelo de ML para uma "Previsão de Estoque Inteligente".
-- Para isso, siga o [passo a passo] descrito a seguir e evolua as suas habilidades em ML no-code com o Amazon SageMaker Canvas.
-- Ao concluir, envie a URL do seu repositório com a solução na plataforma da DIO.
+- Desenvolver competências em Machine Learning low-code.
+- Expandir o conhecimento sobre o Amazon SageMaker.
+- Explorar como a inteligência artificial pode beneficiar o mercado profissional.
+- Apoiar empresas na tomada de decisões e na realização de previsões futuras.
+- Implementar soluções de ML com o SageMaker Canvas para otimizar a gestão de estoque.
+- Aplicar técnicas de análise de dados para melhorar a eficiência operacional das empresas.
 
 
 ## 🚀 Passo a Passo
 
-### 1. Selecionar Dataset
+### 1. Dataset
 
--   Navegue até a pasta `datasets` deste repositório. Esta pasta contém os datasets que você poderá escolher para treinar e testar seu modelo de ML. Sinta-se à vontade para gerar/enriquecer seus próprios datasets, quanto mais você se engajar, mais relevante esse projeto será em seu portfólio.
--   Escolha o dataset que você usará para treinar seu modelo de previsão de estoque.
--   Faça o upload do dataset no SageMaker Canvas.
+Utilizei o ChatGPT para gerar um dataset com informações usando o seguinte prompt:
 
-### 2. Construir/Treinar
+Crie um arquivo CSV contendo as colunas (Item, Comprador, Valor, Data_Compra, Quantidade_Estoque). Esses dados serão usados para treinar um modelo de gerenciamento de estoque inteligente.
 
--   No SageMaker Canvas, importe o dataset que você selecionou.
--   Configure as variáveis de entrada e saída de acordo com os dados.
--   Inicie o treinamento do modelo. Isso pode levar algum tempo, dependendo do tamanho do dataset.
+{REGRAS}
+
+- Sempre que um item atingir a quantidade de 20 unidades, reabasteça o material.
+- Preencha o arquivo com no mínimo 10 compras de itens variados fictícios por dia.
+- Preencha o arquivo com dados a partir de 01-01-2024 até 14-04-2024.
+- Inclua a coluna "Categoria" para identificar o tipo de item (por exemplo, Eletrônicos, Roupas, Alimentos).
+- Adicione uma coluna "Método de Pagamento" com opções como Cartão de Crédito, Dinheiro e Transferência Bancária.
+- Insira uma coluna "Desconto Aplicado" com valores percentuais aleatórios (0%, 5%, 10%, 15%).
+- Introduza uma coluna "Região" para indicar a localização de compra (por exemplo, Norte, Sul, Leste, Oeste).
+
+### 2. Treinando o Modelo
+
+- Carreguei o dataset gerad pelo ChatGPT no SageMaker Canvas
+- Configurei as variáveis de entrada e saída.
+- Iniciei o treinamento do modelo
 
 ### 3. Analisar
 
--   Após o treinamento, examine as métricas de performance do modelo.
--   Verifique as principais características que influenciam as previsões.
--   Faça ajustes no modelo se necessário e re-treine até obter um desempenho satisfatório.
+Após concluir o treinamento, avaliei detalhadamente as métricas de desempenho do modelo.
+Analisei as principais variáveis que impactam as previsões, com ênfase na quantidade em estoque (Quantidade_Estoque) e no valor do item (Valor).
 
 ### 4. Prever
 
--   Use o modelo treinado para fazer previsões de estoque.
--   Exporte os resultados e analise as previsões geradas.
--   Documente suas conclusões e qualquer insight obtido a partir das previsões.
+Utilizei o modelo treinado para realizar previsões de estoque. A análise revelou que o fator mais significativo nos resultados é a quantidade de material em estoque. Quando a quantidade em estoque aumenta de 20 para 60 unidades, observa-se uma redução substancial nas vendas de todos os itens.
 
-## 🤔 Dúvidas?
+Além disso, verificou-se que o item I020 não apresenta variações significativas nas vendas, independentemente da quantidade em estoque ou do valor, o que pode sugerir um alto volume de saída e a necessidade de aumento no estoque desse item.
 
-Esperamos que esta experiência tenha sido enriquecedora e que você tenha aprendido mais sobre Machine Learning aplicado a problemas reais. Se tiver alguma dúvida, não hesite em abrir uma issue neste repositório ou entrar em contato com a equipe da DIO.
+O item I010 experimentou um aumento de 57% nas saídas quando o valor foi reduzido de 90 para 70. Por outro lado, o item I030 viu um incremento de 75% nas saídas quando a quantidade em estoque aumentou de 20 para 120, indicando uma tendência de maiores volumes de compras com maiores quantidades em estoque.
+
+Os demais itens mostraram alterações relevantes apenas quando o período analisado foi reduzido, apresentando consequências negativas. Isso destaca a necessidade de um monitoramento mais rigoroso desses itens.
+
+## 🔗Redes Sociais
+https://www.linkedin.com/in/costairis/
